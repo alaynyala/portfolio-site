@@ -17,7 +17,7 @@
       <div ref="helperRef" class="helper">
         <div class="helper-links">
         <router-link to="/work">view selected projects</router-link>
-        <router-link to="mailto:inquiries@alainahunt.com">let's connect</router-link>
+        <a href="mailto:inquiries@alainahunt.com">let's connect</a>
         </div>
       </div>
     </div>
@@ -189,6 +189,7 @@ canvas {
 
 @media (max-width: 450px) {
     .helper {
+        top: 60%;
         width: 80vw;
         height: 12vh;
     }
