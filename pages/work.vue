@@ -51,8 +51,8 @@ const prevPage = () => {
 
 .pdf-viewer {
   width: 100%;
+  height: calc(100vh - 100px);
   max-width: 100%;
-  height: auto;
 }
 
 .pdf-controls {
@@ -87,6 +87,7 @@ const prevPage = () => {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 90%;
   }
 }
 </style>
