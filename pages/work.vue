@@ -1,7 +1,7 @@
 <template>
   <div class="work-page">
     <iframe
-      :src="`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}&zoom=page-fit`"
+      :src="`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}&zoom=page-fit&pagemode=thumbs`"
       class="pdf-viewer"
       allow="fullscreen"
     />
