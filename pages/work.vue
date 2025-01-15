@@ -30,14 +30,14 @@ export default {
 
 iframe {
   width: 100%;
-  height: 100vh;
+  height: auto;
   border: none;
   overflow: hidden;
 }
 
 @media (max-width: 768px) {
   iframe {
-    height: calc(100vh - 60px);
+    
     -webkit-overflow-scrolling: touch;
   }
 }
