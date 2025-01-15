@@ -1,15 +1,11 @@
 <template>
   <div class="work-page">
-    <object
-      :data="'/pdfs/alainahunt-selected2025.pdf'"
-      type="application/pdf"
-      width="100%"
-      height="100%"
-    >
-      <p>Unable to display PDF file. 
-        <a href="/pdfs/alainahunt-selected2025.pdf">Download</a> instead.
-      </p>
-    </object>
+    <iframe
+    :src="`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}`"
+    width="100%"
+    height="100vh"
+    style="border: none;"
+  ></iframe>
   </div>
 </template>
 
