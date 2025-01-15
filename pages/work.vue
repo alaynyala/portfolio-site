@@ -2,13 +2,6 @@
   <div class="work-page">
     <iframe src="https://drive.google.com/file/d/1XbAN3qywc0t-Y3PX_Sfk7iCy_eWNz0bj/preview" allow="autoplay">
     </iframe>
-    <button @click="goBack"><img src="images/arrow-rt.svg" alt="back" />home</button>
-    <div class="info">
-      <p>
-        <span>alaina hunt</span>
-        <span>©2025</span>
-      </p>
-    </div>
   </div>
 </template>
 
@@ -23,30 +16,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-}
-p {
-  font-family: 'Neue Haas Grotesk Display Pro', Arial, Helvetica, sans-serif;
-  font-size: .5em;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: #fff;
+  padding: 0rem .75rem;
+  border-radius: 1rem;
 }
 
-.info {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+.work-page iframe {
+  width: calc(100% - 1rem);
+  height: 96vh;
+  border-radius: 12px;
 }
 
 @media (max-width: 450px) {
   .work-page {
-    padding: 0;
+    padding: 1rem 0;
   }
   iframe {
-    width: calc(100% - 2rem);
-    height: 80vh;
+    width: calc(100% - 1rem);
+    height: 96vh;
+    border-radius: 12px;
   }
+ 
 }
 
 </style>
