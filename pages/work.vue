@@ -1,10 +1,10 @@
 <template>
   <div class="work-page">
-    <VuePdfEmbed
-    :source="'https://alainahunt.com/pdfs/alainahunt-selected2025.pdf'"
-    :width="100%"
-    :height="100vh"
-    style="max-width: 100%;"
+    <iframe
+    :src="`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}`"
+    width="100%"
+    height="100vh"
+    style="border: none;"
   />
   </div>
 </template>
@@ -28,13 +28,17 @@ export default {
   position: relative;
 }
 
-object {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 100vw;
-  max-height: 100vh;
+iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  iframe {
+    height: calc(100vh - 60px);
+    -webkit-overflow-scrolling: touch;
+  }
 }
 </style>
