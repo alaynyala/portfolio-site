@@ -189,9 +189,9 @@ canvas {
 
 @media (max-width: 450px) {
     .helper {
-        top: 60%;
+        top: 50.5%;
         width: 80vw;
-        height: 12vh;
+        height: 18vh;
     }
 }
 
