@@ -1,46 +1,92 @@
 <template>
   <div class="work-page">
-    <iframe
-      :src="`https://docs.google.com/viewer?url=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}&embedded=true`"
+    <vue-pdf-embed
+      :source="pdfUrl"
+      :page="currentPage"
+      @loaded="onDocumentLoaded"
       class="pdf-viewer"
-      frameborder="0"
     />
+    <div class="pdf-controls" v-if="pageCount > 1">
+      <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+      <span>{{ currentPage }} / {{ pageCount }}</span>
+      <button @click="nextPage" :disabled="currentPage === pageCount">Next</button>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'WorkPage'
+<script setup>
+import VuePdfEmbed from 'vue-pdf-embed'
+import { ref } from 'vue'
+
+const pdfUrl = 'https://alainahunt.com/pdfs/alainahunt-selected2025.pdf'
+const currentPage = ref(1)
+const pageCount = ref(0)
+
+const onDocumentLoaded = (numPages) => {
+  pageCount.value = numPages
+}
+
+const nextPage = () => {
+  if (currentPage.value < pageCount.value) {
+    currentPage.value++
+  }
+}
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--
+  }
 }
 </script>
 
 <style scoped>
 .work-page {
-  height: 100vh;
   width: 100%;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
 
 .pdf-viewer {
   width: 100%;
-  height: 100%;
-  border: none;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  height: auto;
+}
+
+.pdf-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.pdf-controls button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+}
+
+.pdf-controls button:disabled {
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {
   .work-page {
-    position: relative;
-    overflow: visible;
+    padding: 0.5rem;
   }
   
-  .pdf-viewer {
-    min-height: 100vh;
-    width: 100%;
+  .pdf-controls {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 }
 </style>
