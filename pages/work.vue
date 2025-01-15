@@ -1,9 +1,9 @@
 <template>
   <div class="work-page">
     <iframe
-      :src="`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}&zoom=page-fit&pagemode=thumbs`"
+      :src="`https://docs.google.com/viewer?url=${encodeURIComponent('https://alainahunt.com/pdfs/alainahunt-selected2025.pdf')}&embedded=true`"
       class="pdf-viewer"
-      allow="fullscreen"
+      frameborder="0"
     />
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  position: fixed; /* Prevents bouncing on iOS */
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -28,19 +28,19 @@ export default {
   width: 100%;
   height: 100%;
   border: none;
-  overflow: hidden;
-  background: #fff; /* Prevents flash of white */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
+  .work-page {
+    position: relative;
+    overflow: visible;
+  }
+  
   .pdf-viewer {
-    height: 100%; /* Full height on mobile */
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    min-height: 100vh;
+    width: 100%;
   }
 }
 </style>
