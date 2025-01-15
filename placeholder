@@ -1,0 +1,33 @@
+
+<template>
+  <PdfModal :isOpen="isModalOpen" :pdfUrl="pdfUrl" @close="closeModal" />
+</template>
+
+<script>
+import { ref } from 'vue';
+import PdfModal from '../components/PdfModal.vue';
+
+export default {
+  components: {
+    PdfModal,
+  },
+  setup() {
+    const isModalOpen = ref(false);
+    const pdfUrl = ref('/path/to/your/document.pdf'); // Update with your PDF path
+
+    const openModal = () => {
+      isModalOpen.value = true;
+    };
+
+    const closeModal = () => {
+      isModalOpen.value = false;
+    };
+
+    return {
+      isModalOpen,
+      pdfUrl,
+      openModal,
+      closeModal,
+    };
+  },
+};
