@@ -17,7 +17,7 @@
       <div ref="helperRef" class="helper">
         <div class="helper-links">
         <router-link to="/work">view selected projects</router-link>
-        <router-link to="/contact">let's connect</router-link>
+        <router-link to="mailto:inquiries@alainahunt.com">let's connect</router-link>
         </div>
       </div>
     </div>
