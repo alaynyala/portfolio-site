@@ -1,4 +1,11 @@
 export default {
+  target: 'static',
+  generate: {
+    dir: 'dist'
+  },
+  router: {
+    base: '/portfolio-site/'
+  },
   // Disable server-side rendering for SPA
   ssr: false,
 
@@ -16,5 +23,9 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  compatibilityDate: '2025-01-14'
+  compatibilityDate: '2025-01-14',
+
+  build: {
+    publicPath: '/portfolio-site/_nuxt/'
+  }
 };
